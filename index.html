@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS 经典布局</title>
+    <style>
+        /* 2:1长方形 */
+        .box{
+            background: #000;
+            /* 方法1 利用padding 相对于父元素的宽度*/
+            width: 100%;
+            padding-top: 50%;
+            /* 方法2 利用vw单位相对于视口宽度，视口被分为100单位的vw */
+            /* width: 100vw;
+            height: 50vw; */
+        }
+        /* 水平垂直居中 */
+        .center{
+            background: blue;
+            width: 300px;
+            height: 100px;
+        }
+        .center .center-body{
+            background: yellow;
+            position: relative;
+            width: 50%;
+            height: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 2:1长方形 -->
+    <div class="box">
+        123
+    </div>
+    <!-- 水平垂直居中 -->
+    <div class="center">
+        <div class="center-body"></div>
+    </div>
+</body>
+</html>
