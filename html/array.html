@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>数组常用方法</title>
+    </head>
+    <body>
+        <script>
+            // 转换
+            // var arr = ["red", "blue", "green"];
+            // var parson = {
+            //     name: 'wangchunwei',
+            //     age: '18',
+            //     getName: function () {
+            //         return name;
+            //     }
+            // }
+            // console.log(arr.toString());
+            // console.log(arr.valueOf());
+            // console.log(arr);
+
+            // 操作方法 
+            var arr = [1,2,3];
+            var aa = arr.slice(1,2,3);      // slice 不包括结束位置项；不影响原数组
+            console.log(aa);    // 2
+            var bb = arr.splice(1,2,3,4);   // 包括结束位置项；且影响原数组
+            console.log(bb);   // 2, 3
+            console.log(arr);   // 1, 3, 4
+        </script>
+    </body>
+</html>

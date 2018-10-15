@@ -34,3 +34,18 @@ function quickSort (arr) {
   }
   return quickSort(left).concat([pivot], quickSort(right));
 }
+
+//节流
+function throttle(fn, interval) {
+  interval = arguments[1] ? arguments[1] : 300;
+  var canRun = true;
+  return function () {
+    if (!canRun) return;
+    canRun = false;
+    setTimeout(() => {
+      console.log('滚动结束')
+      fn.apply(this, arguments);
+      canRun = true;
+    }, interval)
+  }
+}
