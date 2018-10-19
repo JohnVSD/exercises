@@ -35,6 +35,25 @@ function quickSort (arr) {
   return quickSort(left).concat([pivot], quickSort(right));
 }
 
+// 二分查找
+function query (arr, key) {
+  var start = 0;
+  var end = arr.length - 1;
+  while (start <= end) {
+    // var mid = parseInt(start + (end - start) / 2);
+    var mid = parseInt((end + start) / 2);
+    console.log(mid)
+    if (arr[mid] == key) {
+      return mid
+    } else if (key > arr[mid]) {
+      start = mid+1
+    } else {
+      end = mid-1
+    }
+  }
+  return -1
+}
+
 //节流
 function throttle(fn, interval) {
   interval = arguments[1] ? arguments[1] : 300;
