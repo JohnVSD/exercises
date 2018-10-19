@@ -59,23 +59,17 @@ var json = [
 ]
 
 function tree(data) {
-    // if( data.chindren ){
-    //   return data
-    // }
-
-    for (var i in data) {
-        var item = data[i]
-        // console.log(item)
-        // if (!item.chindren){ 
-        // console.log("=========")
-        // console.log( item.id )
-        // console.log( item.name )
-        // return item 
-        // }
-        console.log(item.id, item.name)
-        // console.log( item.name )
-        tree(item.chindren)
-    }
+    data.forEach(function(res){
+        // console.log('========', res.name, '===========')
+        if (res.chindren) {
+            console.log("===================")
+            console.log(res.name)
+            tree(res.chindren)
+        } else {
+            console.log("----")
+            console.log(res.name)
+        }
+    })
 }
 
 tree(json)
