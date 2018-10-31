@@ -1,6 +1,7 @@
 /**
  * 算法
  */
+
 //冒泡排序
 function bubble_sort(arr) {
   for (var i = 0; i < arr.length - 1; i++) {
@@ -20,8 +21,8 @@ function quickSort (arr) {
     return arr
   }
 
-  var pivotIndex = Math.floor(arr.length/2);
-  var pivot = arr.splice(pivotIndex, 1)[0];
+  var pivotIndex = Math.floor(arr.length / 2);  // 取数组中间索引
+  var pivot = arr.splice(pivotIndex, 1)[0]; // 取数组中间值
 
   var left = [];
   var right = [];
@@ -35,8 +36,12 @@ function quickSort (arr) {
   return quickSort(left).concat([pivot], quickSort(right));
 }
 
-// 二分查找
-function query (arr, key) {
+/**
+ * 二分查找 
+ * 描述：在有序数组中查找指定值
+ * 非递归
+ */ 
+function binary_search1 (arr, key) {
   var start = 0;
   var end = arr.length - 1;
   while (start <= end) {
@@ -53,9 +58,27 @@ function query (arr, key) {
   }
   return -1
 }
+// 二分查找 递归
+function binary_search2 (arr, start, end, key) {
+  if (arr.length <= 1) { return arr }
+  if (start <= end) {
+    var mid = parseInt((start + end) / 2)
+    if (arr[mid] == key) {
+      return mid
+    } else if (key > arr[mid]) {
+      return binary_search2(arr, mid+1, end, key)
+    } else if (key < arr[mid]) {
+      return binary_search2(arr, start, mid-1, key)
+    }
+  } else {
+    return -1
+  }
+}
+var arr = [1, 2, 3, 4, 5, 6, 8, 10, 12];
+console.log(binary_search2(arr, 0, arr.length-1, 10))
 
 //节流
-function throttle(fn, interval) {
+function throttle (fn, interval) {
   interval = arguments[1] ? arguments[1] : 300;
   var canRun = true;
   return function () {
@@ -68,3 +91,35 @@ function throttle(fn, interval) {
     }, interval)
   }
 }
+
+// 数组去重
+function unique (arr) {
+  var result = [];
+  for( var i=0; i<arr.length; i++ ){
+    if(result.indexOf(arr[i]) == -1){
+      result.push(arr[i])
+    }
+  }
+  return result
+}
+
+//js实现每次调用一个函数自动加1
+var count = (function () {
+  var a = 0;
+  return function () {
+    return a++
+  }
+})()
+console.log(count())
+console.log(count())
+console.log(count())
+console.log(count())
+
+var left = 1;
+setTimeout(function () {
+  if (left < 10) {
+    left ++ 
+    setTimeout(arguments.callee, 50);
+    console.log(left)
+  }
+}, 50);

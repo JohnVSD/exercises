@@ -56,15 +56,17 @@
 // console.log(instance.constructor)
 // console.log(instance.getSuperValue())
 // console.log(instance.getSubValue())
-
-// ============================================
-var arr = new Array
-arr[0] = 1
-arr[1] = 2
-arr[2] = 3
-console.log(arr)
-console.log(arr instanceof Array)
-arr.__proto__.constructor = function String () {
-
+var person = {
+    name: 'xiaoming',
+    age: '20'
 }
-console.log(arr instanceof Array)
+console.log(person)
+var sub = Object.create({})
+console.log(sub)
+// ============================================
+// var arr = new Array
+// arr[0] = 1
+// arr[1] = 2
+// arr[2] = 3
+// console.log(arr)
+// console.log(arr instanceof Array)

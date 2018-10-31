@@ -1,6 +1,5 @@
 // defineProperty() 数据属性练习
 var obj = {
-	name: "王春伟",
 	sayname: function () {
 		console.log(this.name)
 	}
@@ -9,12 +8,17 @@ var obj = {
 Object.defineProperty(obj, 'name', {
 	configurable: true,	// 是否可以使用delete方法删除属性  是否可配置
 	enumerable: true,	 // 是否可以使用 for-in 方法获取到 key 是否可枚举
-	writable: false,	// 是否可以修改属性值	是否可写
-	value: "你好，王春伟"
+	//writable: false,	// 是否可以修改属性值	是否可写
+	get: function () {
+		return '《' + name + '》'
+	},
+	set: function (value) {
+		name = value
+		console.log("你取了一个书名叫：" + value )
+	}
 })
-
-obj.name = "wo不好"
-console.log(obj)
+obj.name = '权威指南'
+console.log(obj.name)
 
 // 访问器属性 getter、setter
 var book = {

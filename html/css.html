@@ -6,17 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS 经典布局</title>
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
         /* 2:1长方形 */
-        .box{
-            background: #000;
-            color: aliceblue;
+        /* .box{ */
+            /* background: #000; */
+            /* color: aliceblue; */
             /* 方法1 利用padding 相对于父元素的宽度*/
-            width: 100%;
-            padding-top: 50%;
+            /* width: 100%; */
+            /* padding-top: 50%; */
             /* 方法2 利用vw单位相对于视口宽度，视口被分为100单位的vw */
             /* width: 100vw;
             height: 50vw; */
-        }
+        /* } */
         /* 水平垂直居中 */
         .center{
             position: relative;
@@ -35,33 +39,47 @@
             bottom: 0;
             right: 0;
         }
-        .a1{
-            margin-bottom: 10px;
-            height: 20px;
-            border: 1px solid #000;
+        /* 圣杯布局 */
+        .container{
+            padding: 0 200px;
         }
-        .a2{
-            margin-top: 10px;
-            height: 20px;
-            border: 1px solid #000;
+        .col{
+            float: left;
+        }
+        .main{
+            width: 100%;
+            height: 100px;
+            background: black;
+        }
+        .left{
+            width: 200px;
+            height: 100px;
+            margin-left: -200px;
+            background: bisque;
+        }
+        .right{
+            width: 200px;
+            height: 100px;
+            float: right;
+            margin-right: -200px;
+            background: bisque;
         }
     </style>
 </head>
 <body>
     <!-- 2:1长方形 -->
-    <div class="box">
+    <!-- <div class="box">
         123
-    </div>
+    </div> -->
     <!-- 水平垂直居中 -->
     <div class="center">
         <div class="center-body"></div>
     </div>
-    <!-- margin 重合 -->
-    <div class="a1">
-        
-    </div>
-    <div class="a2">
-
+    <!-- 圣杯布局 -->
+    <div class="container">
+        <div class="left col"></div>
+        <div class="main col"></div>
+        <div class="right col"></div>
     </div>
 </body>
 </html>
