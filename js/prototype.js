@@ -23,17 +23,18 @@
 // console.log(foo)
 
 // ============================================
-// function Person () {
-//     this.name = 'John'
-// }
-// Person.prototype.getName = function () {
-//     return this.name
-// }
+function Person () {
+    this.name = 'John'
+}
+Person.prototype.getName = function () {
+    return this.name
+}
 
-// var person = new Person()
-// console.log(person.getName())
-// console.log(person.__proto__)
-// console.log(Person.prototype)
+var person = new Person()
+console.log(person.getName())
+console.log(person)
+console.log(Person.prototype)
+console.log(person.__proto__ === Person.prototype)
 
 // ============================================
 // function SuperType () {
@@ -56,13 +57,7 @@
 // console.log(instance.constructor)
 // console.log(instance.getSuperValue())
 // console.log(instance.getSubValue())
-var person = {
-    name: 'xiaoming',
-    age: '20'
-}
-console.log(person)
-var sub = Object.create({})
-console.log(sub)
+
 // ============================================
 // var arr = new Array
 // arr[0] = 1

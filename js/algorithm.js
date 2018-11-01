@@ -74,8 +74,6 @@ function binary_search2 (arr, start, end, key) {
     return -1
   }
 }
-var arr = [1, 2, 3, 4, 5, 6, 8, 10, 12];
-console.log(binary_search2(arr, 0, arr.length-1, 10))
 
 //节流
 function throttle (fn, interval) {
@@ -103,23 +101,50 @@ function unique (arr) {
   return result
 }
 
-//js实现每次调用一个函数自动加1
-var count = (function () {
-  var a = 0;
-  return function () {
-    return a++
+//= 数组乱序 1
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function shuffle(a) {
+  var len = a.length;
+  var shuffled = [];
+  var rand;
+  for (var i = 0; i < len; i++) {
+    rand = ~~(Math.random() * (i + 1));   // ~~ 截除数值的小数部分
+    if (rand !== i) {
+      shuffled[i] = shuffled[rand];
+    }
+    shuffled[rand] = a[i];
   }
-})()
-console.log(count())
-console.log(count())
-console.log(count())
-console.log(count())
+  return shuffled;
+}
+//== 数组乱序 2
+// arr.sort(function () {
+//   return Math.random() > 0.5 ? -1 : 1;
+// })
+// console.log(arr)
 
-var left = 1;
-setTimeout(function () {
-  if (left < 10) {
-    left ++ 
-    setTimeout(arguments.callee, 50);
-    console.log(left)
+//=== 数组乱序 3 
+function shuffle_3 (arr) {
+  var b = [];
+  while (arr.length > 0) {
+    var index = parseInt(Math.random() * (arr.length - 1));
+    b.push(arr[index]);
+    arr.splice(index, 1);
   }
-}, 50);
+  return b;
+}
+
+// 为数值添加千分符
+var num = 12345678;
+function fun (num) {
+  num = num.toString();
+  console.log(num)
+}
+fun(num)
+
+// 实现一个forEach 
+Array.prototype._forEach = function (fn) {
+  for (var i=0; i<this.length; i++) {
+    var item = this[i];
+    fn(item, i, this);
+  }
+}
