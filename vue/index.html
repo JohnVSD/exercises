@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双向绑定简单实例</title>
+</head>
+<body>
+    <input id="inp" type="text">
+    <p id="con"></p>
+    <script>
+        var obj = {};
+        Object.defineProperty(obj, 'say',{
+            set: function (val) {
+                document.getElementById('inp').value = val;
+                document.getElementById('con').innerHTML = val;
+            }
+        })
+
+        document.addEventListener('keyup', function (e) {
+            obj.say = e.target.value;
+        })
+    </script>
+</body>
+</html>

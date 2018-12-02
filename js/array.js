@@ -15,6 +15,7 @@ var center = Math.floor(arr.length / 2) // Math.floor 对数值进行向下取�
 //var center2 = parseInt(arr.length / 2)  // parseInt 解析一个字符串，返回一个整数
 var index = arr.splice(center, 1)[0]
 // console.log(index)
-
-window.startTime = Date.now();
-console.log(window.startTime)
+var re = new Set(arr);
+console.log(re)
+console.log(Array.from(re))
+console.log(...re)

@@ -77,7 +77,7 @@ function binary_search2 (arr, start, end, key) {
 
 //节流
 function throttle (fn, interval) {
-  interval = arguments[1] ? arguments[1] : 300;
+  interval = interval || 300;
   var canRun = true;
   return function () {
     if (!canRun) return;
@@ -103,43 +103,38 @@ function unique (arr) {
 
 //= 数组乱序 1
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-function shuffle(a) {
-  var len = a.length;
-  var shuffled = [];
-  var rand;
-  for (var i = 0; i < len; i++) {
-    rand = ~~(Math.random() * (i + 1));   // ~~ 截除数值的小数部分
-    if (rand !== i) {
-      shuffled[i] = shuffled[rand];
-    }
-    shuffled[rand] = a[i];
-  }
-  return shuffled;
-}
+//=数组乱序 1
+// function shuffle(arr) {
+//   var b = [];
+//   while (arr.length > 0) {
+//     // Math.random()随机返回 0~1 之间的数值
+//     var index = parseInt(Math.random() * (arr.length - 1));
+//     b.push(arr[index]);
+//     arr.splice(index, 1);
+//   }
+//   return b;
+// }
 //== 数组乱序 2
 // arr.sort(function () {
 //   return Math.random() > 0.5 ? -1 : 1;
 // })
 // console.log(arr)
 
-//=== 数组乱序 3 
-function shuffle_3 (arr) {
-  var b = [];
-  while (arr.length > 0) {
-    var index = parseInt(Math.random() * (arr.length - 1));
-    b.push(arr[index]);
-    arr.splice(index, 1);
-  }
-  return b;
-}
-
 // 为数值添加千分符
-var num = 12345678;
-function fun (num) {
-  num = num.toString();
-  console.log(num)
+function toThousands(num) {
+  var num = (num || 0).toString(), result = '';
+  while (num.length > 3) {
+    result = ',' + num.slice(-3) + result;
+    console.log(result)
+    num = num.slice(0, num.length - 3);
+  }
+  if (num) { 
+    result = num + result;
+  }
+  return result;
 }
-fun(num)
+var num = 1234567;
+console.log(toThousands(num))
 
 // 实现一个forEach 
 Array.prototype._forEach = function (fn) {
@@ -148,3 +143,41 @@ Array.prototype._forEach = function (fn) {
     fn(item, i, this);
   }
 }
+
+// 实现一个数组map方法
+Array.prototype._map = function (fn) {
+  var result = [];
+  for (var i = 0; i < this.length; i++) {
+    var item = this[i];
+    result[i] = fn.call(null, item, i, this);
+  }
+  return result;
+}
+
+//传入一个number，返回属于当前月份第几周
+function week(y, m, d) {
+  var date = new Date(y, m-1, d);
+  var year = date.getFullYear();
+  var month = date.getMonth();  // 从0开始，0表示1月，11表示12月
+  var days = date.getDate();
+  // 那一天是那一年的第多少天
+  for(var i=1; i < m; i++ ){
+    days += getMonthDays(year, i);
+  }
+  
+  // 那一年的第一天是星期几
+  var yearFirstDay = new Date(year, 0, 1).getDay();
+  days += yearFirstDay;
+  var week = Math.ceil(days / 7);
+  return week
+}
+// 判断是否是闰年
+function isLeapYear (year) {
+  return (year % 400 == 0) || (year % 4 ==0 && year % 100 !== 0);
+}
+// 获取某年某月天数
+function getMonthDays (year, month) {
+  return [31, (isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
+}
+
+// console.log('第', week(2018, 11, 4), '周')

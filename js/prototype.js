@@ -26,16 +26,14 @@
 function Person () {
     this.name = 'John'
 }
-Person.prototype.getName = function () {
-    return this.name
-}
+// Person.prototype.getName = function () {
+//     return this.name
+// }
+// Person.prototype = new Array
 
 var person = new Person()
-console.log(person.getName())
-console.log(person)
-console.log(Person.prototype)
-console.log(person.__proto__ === Person.prototype)
 
+alert(person)
 // ============================================
 // function SuperType () {
 //     this.property = true
@@ -65,3 +63,5 @@ console.log(person.__proto__ === Person.prototype)
 // arr[2] = 3
 // console.log(arr)
 // console.log(arr instanceof Array)
+
+
