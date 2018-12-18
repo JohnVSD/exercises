@@ -23,17 +23,17 @@
 // console.log(foo)
 
 // ============================================
-function Person () {
-    this.name = 'John'
-}
+// function Person () {
+//     this.name = 'John'
+// }
 // Person.prototype.getName = function () {
 //     return this.name
 // }
 // Person.prototype = new Array
 
-var person = new Person()
+// var person = new Person()
 
-alert(person)
+// alert(person)
 // ============================================
 // function SuperType () {
 //     this.property = true
@@ -63,5 +63,10 @@ alert(person)
 // arr[2] = 3
 // console.log(arr)
 // console.log(arr instanceof Array)
+
+// ==============构造函数A的实例继承构造函数B的实例=================
+// function inhert (a, b) {
+
+// }
 
 

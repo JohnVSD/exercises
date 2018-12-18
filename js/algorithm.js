@@ -3,6 +3,7 @@
  */
 
 //冒泡排序
+var arr = [2,4,1,6,8,3,10,7,9];
 function bubble_sort(arr) {
   for (var i = 0; i < arr.length - 1; i++) {
     for (var j = 0; j < arr.length - i - 1; j++) {
@@ -14,7 +15,6 @@ function bubble_sort(arr) {
     }
   }
 }
-
 //快速排序
 function quickSort (arr) {
   if (arr.length <= 1) {
@@ -102,7 +102,7 @@ function unique (arr) {
 }
 
 //= 数组乱序 1
-var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //=数组乱序 1
 // function shuffle(arr) {
 //   var b = [];
@@ -133,8 +133,8 @@ function toThousands(num) {
   }
   return result;
 }
-var num = 1234567;
-console.log(toThousands(num))
+// var num = 1234567;
+// console.log(toThousands(num))
 
 // 实现一个forEach 
 Array.prototype._forEach = function (fn) {

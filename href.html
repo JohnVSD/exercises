@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试</title>
+</head>
+<body>
+    <div>
+        <h3>搜索href</h3>
+        <p>
+            <a href="//www.baidu.com">百度</a>
+        </p>
+    </div>
+    <div>
+        <p>
+            <a href="javascript:void(0);">百度</a>
+        </p>
+    </div>
+    <div>
+        <p>
+            <a href="###">123</a>
+        </p>
+    </div>
+    <div>
+        <p>
+            <a href="http://www.ofo.com">ofo</a>
+        </p>
+    </div>
+    <div>
+        <p>
+            <a href="https://www.taobao.com">淘宝</a>
+        </p>
+    </div>
+    <script>
+        var aHref = document.getElementsByTagName('a');
+        if (aHref.length > 0) {
+            Array.from(aHref).forEach((item, i) => {
+                if(item.href !== '' && !item.href.includes('javascript') && !item.href.includes('###')){
+                    console.log(item.href)
+//                  window.location = item.href;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

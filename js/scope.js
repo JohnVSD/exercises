@@ -265,7 +265,7 @@
 // ========================*==============================
 // function Test () {}
 // var test = new Test();
-// console.log(Test.__proto__.__proto__)
+// console.log(Function.prototype)
 // console.log(test.__proto__)
 // console.log(test.__proto__ === Test.prototype)
 // console.log(test.__proto__ === Function.prototype)
@@ -273,3 +273,47 @@
 // console.log(test.__proto__ === Object.prototype)
 // console.log(test.__proto__.__proto__ === Object.prototype)
 // console.log(Test.prototype.__proto__ === Object.prototype)
+
+// ========================this 指向==============================
+// ---简单硬绑定---
+// function foo () {
+//     alert(this.name)
+// }
+
+// var b = {
+//     name: '李磊'
+// }
+
+// // 硬绑定；this指向不会再被改变
+// var bar = function () {
+//     foo.call(b)
+// }
+
+// var name = '王和平'
+
+// bar()
+
+// --- 辅助函数 ---
+function foo (num) {
+    console.log(this.a, num);
+    return this.a + num;
+}
+
+var obj = {
+    a: 2
+}
+
+function bind (fn, obj) {
+    return function () {
+        return fn.apply(obj, arguments);
+    }
+}
+
+var bar = bind(foo, obj);
+var b = bar(3);
+console.log(b)
+
+// 由于硬绑定是一种常用的方式，所以ES5将其标准化，提供了内置方法 Funtion.prototype.bind，用法如下
+var bar = foo.bind(obj);
+var b = bar(4);
+console.log(b);
