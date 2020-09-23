@@ -15,3 +15,8 @@ function partial(fn, ...presetArgs) {
     return fn( ...presetArgs, ...laterArgs);
   }
 }
+
+// 传一个返回一个
+function identity(v) {
+  return v;
+}
