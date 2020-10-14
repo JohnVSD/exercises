@@ -24,7 +24,7 @@
 // test(m);
 // console.log(m.v); // undefined
 
-// ! 3 疑问题 不明白
+// * 3 考查函数提升
 // function fun1() {
 //   console.log(1);
 // }
@@ -35,7 +35,7 @@
 //       console.log(2);
 //     }
 //   }
-//   fun1();
+//   fun1(); // fun1 is not a function
 // })();
 
 /**
