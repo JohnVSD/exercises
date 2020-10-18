@@ -18,17 +18,37 @@
     </ul>
     <script>
       // 写出 3 种 正确输出 li 内容的方法
-      // 本题考查 事件委托；
-      // var list_li = document.getElementsByTagName('li');
-      // console.log(list_li);
-      // for (let i = 0; i < list_li.length; i++) {
-      //   console.log(i);
-      //   list_li[i].onclick = function (e) {
-      //     // 方法一
-      //     console.log(e.target.innerHTML);
+      var list_li = document.getElementsByTagName('li');
+
+      // for (var i = 0; i < list_li.length; i++) {
+      //   list_li[i].onclick = function () {
+      //     console.log(i); // 原题 全是 5，i 的最终值
       //   }
       // }
+      // 方法一
+      // for (var i = 0; i < list_li.length; i++) {
+      //   list_li[i].onclick = function () {
+      //     console.log(this.innerHTML);
+      //   }
+      // }
+
+      // 方法二
+      // for (let i = 0; i < list_li.length; i++) {
+      //   list_li[i].onclick = function () {
+      //     console.log(i + 1);
+      //   }
+      // };
+
+      // 方法三 自执行函数制造闭包保存函数。
+      // for (var i = 0; i < list_li.length; i++) {
+      //   (function(i) {
+      //     list_li[i].onclick = function () {
+      //       console.log(i + 1);
+      //     }
+      //   })(i);
+      // };
     </script>
-    <script src="./console.js"></script>
+    <!-- <script src="./console.js"></script> -->
+    <script src="./test12.js"></script>
   </body>
 </html>
