@@ -77,4 +77,4 @@ function flatTree(tree, labels = '') {
   }, []);
 }
 
-flatTree(tree)
+console.log(flatTree(tree));
