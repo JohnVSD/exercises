@@ -3,7 +3,7 @@
  */
 console.log({} + []); // ![object, Object] {} 这是代码块
 {} + [];
-[] + {}; 
+[] + {};
 {} + {};
 console.log([] == false); // true
 console.log({} == false); // false
