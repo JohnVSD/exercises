@@ -1,7 +1,7 @@
 /**
  * ! 考点：各种隐式类型转换
  */
-console.log({} + []); // ![object, Object]
+console.log({} + []); // ![object, Object] {} 这是代码块
 {} + [];
 [] + {}; 
 {} + {};
@@ -15,7 +15,7 @@ if ([]) { // !if 这里肯定有一层隐式类型转换，此步骤存疑
 ("b"+"a"+ +"a"+"a").toLocaleLowerCase(); // ??
 
 0 == "0"; // true
-Boolean("0") == Boolean(0); // true
+Boolean("0") == Boolean(0); // false
 console.log('NaN == 0：', NaN == 0); // false
 console.log('NaN <= 0：', NaN <= 0); // false
 console.log('null <= 0：', null <= 0); // true 
